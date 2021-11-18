@@ -20,7 +20,7 @@ $viewData = getMsgsAndBord($m_id);
 //パラメータに不正な値が入っているかチェック
 if(empty($viewData)){
   error_log('エラー発生：指定ページに不正な値が入りました');
-  header("Location:mypage.php");//マイページへ
+  header("Location:mypage.php");
 }
 //商品情報を取得
 $productInfo = getProductOne($viewData[0]['product_id']);
@@ -70,7 +70,6 @@ if(!empty($_POST)){
       $sql = 'INSERT INTO message (bord_id,send_date,to_user,from_user,msg,create_date) VALUES (:b_id,:send_date,:to_user,:from_user,:msg,:date)';
       $data = array(':b_id' => $m_id,':send_date' => date('Y-m-d H:i:s'), ':to_user' => $partnerUserId,':from_user' => $_SESSION['user_id'],':msg' => $msg,':date' => date('Y-m-d H:i:s'));
       $stmt = queryPost($dbh,$sql,$data);
-      //クエリ成功の場合
       if($stmt){
         $_POST = array();//postをクリア
         header("Location:". $_SERVER['PHP_SELF'] .'?m_id='.$m_id);//自分自身に遷移する
@@ -231,9 +230,6 @@ require('head.php');
          </div>
          <div class="avatar-info">
            <?php echo sanitize($partnerUserInfo['username']).' '.sanitize($partnerUserInfo['age']).'歳' ?><br>
-           <!-- 〒<?php echo wordwrap($partnerUserInfo['zip'],7,"_",true); ?>
-           <?php echo sanitize($partnerUserInfo['addr']); ?><br>
-           TEL:<?php echo sanitize($partnerUserInfo['tel']); ?> -->
            <br>
            <br>
          </div>
@@ -308,7 +304,10 @@ require('head.php');
        </div>
        <form action="purchase.php" method="post"  onsubmit="return beforeSubmit()">
          <input type="submit" value="購入">
-         <!-- <input type="hidden" name="pic1" value="<?php echo $_POST['pic1']; ?>">  -->
+         <input type="hidden" name="pic1" value="<?php echo $productInfo['pic1']; ?>">
+         <input type="hidden" name="name" value="<?php echo $productInfo['name']; ?>">
+         <input type="hidden" name="username" value="<?php echo $partnerUserInfo['username']; ?>">
+         <input type="hidden" name="price" value="<?php echo $productInfo['price']; ?>">
      </section>
      
      <script src="js/vendor/jquery-3.4.1.min.js"></script>
