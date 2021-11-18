@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>FOOTBALL SHIRTS</title>
+	<link rel="stylesheet" type="text/css" href="style1.css">
+	<link href="https://fonts.googleapis.com/css?family=Sawarabi+Mincho" rel="stylesheet">
+	<script>
+      
+    </script>
+</head>
+
+<body>
+ <header>
+  <div class="site-width">
+    <h1><a href="index.php">FOOTBALL SHIRTS</a></h1>
+    <nav id="top-nav">
+      <ul>
+        <li><a href="login.php">ログイン</a></li>
+        <li><a href="signup.php" class="btn btn-primary">ユーザー登録</a></li>
+      
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div id="contents" class="site-width">
+  <h1 class="page-title">プロフィール編集</h1>
+   <!--main-->
+   <section id="main">
+     <div class="form-container">
+       <form action="" method="post" class="form" enctype="multipart/form-data">
+        <div class="area-msg">
+          
+        </div>
+        <label for="" class="">
+          名前
+          <input type="text" name="username" value="">
+        </label>
+        <div class="area-msg">
+         
+        </div>
+        
+        <label for="" class="">
+          TEL <span style="font-size:12px;margin-left:5px;">*ハイフン無しでご入力ください</span>
+          <input type="text" name="tel" value="">
+        </label>
+        <div class="area-msg">
+          
+        </div>
+        
+        <label for="" class="">
+          郵便番号 <span style="font-size:12px;margin-left:5px;">*ハイフン無しでご入力ください</span>
+          <input type="text" name="tel" value="">
+        </label>
+        <div class="area-msg">
+          
+        </div>
+        
+        <label for="" class="">
+          住所 
+          <input type="text" name="addr" value="">
+        </label>
+        <div class="area-msg">
+          
+        </div>
+        
+        <label style="text-align:left;"  for="" class="">
+          年齢 
+          <input type="number" name="age" value="">
+        </label>
+        <div class="area-msg">
+          
+        </div>
+        
+        <label class="">
+          Email
+          <input type="text" name="email" value="">
+        </label>
+        <div class="area-msg">
+          
+        </div>
+        
+        プロフィール画像
+        <label class="area-drop" style="height:370px;line-height:370px;">
+          <input type="hidden" name="MAX_FILE_SIZE" value="3145728">
+          <input type="file" name="pic" class="input-file" style="height:370px;">
+          <img src="" alt="" class="prev-img" style="">
+           ドラッグ＆ドロップ
+        </label>
+        <div class="area-msg">
+          
+        </div>
+        <div class="btn-container">
+          <input type="submit" class="btn btn-mid" value="変更する">
+        </div>
+        
+       </form>
+     </div>
+   </section>
+ </div>
+  <footer>
+  Copyright <a href="http://IAIs.stadim.com/">football shirts</a>. All Rights Reserved.
+</footer>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+ $(function(){
+    // フッターを最下部に固定
+    var $ftr = $('#footer');
+    if( window.innerHeight > $ftr.offset().top + $ftr.outerHeight() ){
+      $ftr.attr({'style': 'position:fixed; top:' + (window.innerHeight - $ftr.outerHeight()) +'px;' });
+   }
+</script>
+
+
+</body>
+</html>
