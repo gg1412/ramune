@@ -226,10 +226,34 @@ require('head.php');
      <section id="main">
        <div class="msg-info">
          <div class="avatar-img">
-           <img src="<?php echo showImg(sanitize($partnerUserInfo['pic'])); ?>" alt="" class="avatar"><br>
+
+
+
+           <?php if(!empty($partnerUserInfo['pic'])) :?>
+            <img src="<?php echo showImg(sanitize($partnerUserInfo['pic'])); ?>" alt="" class="avatar"><br>
+           <?php else: ?>
+            <img src="uploads/240ec862387d03003cb4c41cd93cb0be.png" alt="" class="avatar"><br>
+           <?php endif; ?>
+
+
+
          </div>
          <div class="avatar-info">
-           <?php echo sanitize($partnerUserInfo['username']).' '.sanitize($partnerUserInfo['age']).'歳' ?><br>
+           <?php
+            if(!empty($partnerUserInfo['username'])) {
+              echo sanitize($partnerUserInfo['username']);
+            } else {
+              echo "名前：未設定";
+            }
+            echo "<br>";
+
+            if(!empty($partnerUserInfo['age'])) {
+              echo sanitize($partnerUserInfo['age']).'歳';
+            } else {
+              echo "年齢：未設定";
+            }
+            ?>  
+           <br>
            <br>
            <br>
          </div>
@@ -308,6 +332,10 @@ require('head.php');
          <input type="hidden" name="name" value="<?php echo $productInfo['name']; ?>">
          <input type="hidden" name="username" value="<?php echo $partnerUserInfo['username']; ?>">
          <input type="hidden" name="price" value="<?php echo $productInfo['price']; ?>">
+        
+        <form action="purchase.php" method="get">
+        <input type="hidden" name="m_id" value="<?php if(isset($_GET['m_id'])) { $_GET['m_id']; } ?>">
+        </form>
      </section>
      
      <script src="js/vendor/jquery-3.4.1.min.js"></script>

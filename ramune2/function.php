@@ -383,6 +383,23 @@ function getMyProducts($u_id){
 
 }
 
+function getMyhistory($u_id) {
+  try{
+    $dbh = dbConnect();
+    $sql = 'SELECT * FROM history WHERE user_id = :u_id';
+    $data = array(':u_id' => $u_id);
+    $stmt = queryPost($dbh, $sql, $data);
+
+    if($stmt){
+      // クエリ結果のデータを全レコード返却
+      return $stmt->fetchAll();
+    }else{
+      return false;
+    }
+  }catch (Exception $e) {
+    error_log('エラー発生:' . $e->getMessage());
+  }
+}
 
 // 使うかわからない
 // function getMsgname($id){

@@ -15,7 +15,6 @@ $bordData = getMyMsgsAndBord($u_id);
 //DBからお気にいリデータを取得
 $likeData = getMyLike($u_id);
 
-// $msgname = getMsgname($u_id);
 
 ?>
 

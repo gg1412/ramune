@@ -59,18 +59,14 @@ if(!empty($_POST)){
           $username = ($userData['username']) ? $userData['username'] : '名無し';
           $from = '2011070@i-seifu.jp';
           $to = $userData['email'];
-          $subject = 'パスワード変更通知｜WEBUKATUMARKET';
+          $subject = 'パスワード変更通知';
           //EOTはEndOfFileの略。ABCでもなんでもいい。先頭の<<<の後の文字列と合わせること。最後のEOTの前後に空白など何も入れてはいけない。
           //EOT内の半角空白も全てそのまま半角空白として扱われるのでインデントはしないこと
           $comment = <<<EOT
 {$username}　さん
 パスワードが変更されました。
 
-////////////////////////////////////////
-ウェブカツマーケットカスタマーセンター
-URL  http://webukatu.com/
-E-mail info@webukatu.com
-////////////////////////////////////////
+
 EOT;
           sendMail($from, $to, $subject, $comment);
           header("Location:mypage.php");
